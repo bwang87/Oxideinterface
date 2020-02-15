@@ -14,5 +14,6 @@ pytesseract.pytesseract.tesseract_cmd = r'C:\Users\varun\Anaconda3\Lib\site-pack
 x=pytesseract.image_to_string(Image.open('rattatouille_instructions.png'))
 #x=''.join(z for z in x if x.isalnum())
 x=' '.join(x.split())
-x=(x.split(','))
-print(x)
+x=re.split('[0-9]*\.',x)
+#x=(x.split(','))
+print(x[5])
