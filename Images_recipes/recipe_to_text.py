@@ -23,6 +23,10 @@ x=re.split('[0-9]*\.',x)
 #x=(x.split(','))
 print(x[5])
 i=0
+
+command=0
+
+    
 for z in x:
     number_i=str(i)
     '''
@@ -31,11 +35,13 @@ for z in x:
     else:
     '''
     engine.say(z)
-    
-    #input("Press Enter to continue...")
-    
     engine.runAndWait()
     print(i)
-    time.sleep(2)
+    #input("Press Enter to continue...")
+    
+    while command==0:
+        
+        time.sleep(.1)
+        #command=hear_command()
 
 
