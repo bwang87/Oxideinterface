@@ -446,6 +446,7 @@ red pepper
 kidney bean
 garbanzo bean
 black eyed pea
+black pepper
 mushroom
 date
 yam
