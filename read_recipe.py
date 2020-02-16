@@ -61,11 +61,13 @@ def tokenizer(recipe_folder_name):
     index = -1
     new_instructions = []
     for i in range(len(instructions)):
-        if instructions[i][0].isdigit() and instructions[i][1]=='.':
+        if instructions[i][0].isdigit() and instructions[i][1] == '.':
             index = index + 1
             new_instructions.append(instructions[i])
-
+        elif instructions[i][0].isdigit() and instructions[i][2] == '.':
+            index = index + 1
+            new_instructions.append(instructions[i])
         else:
-            new_instructions[index]=new_instructions[index]+instructions[i]
+            new_instructions[index] = new_instructions[index] + instructions[i]
 
     return ingredients_dict, new_instructions
