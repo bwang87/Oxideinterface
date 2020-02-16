@@ -50,7 +50,11 @@ def tokenizer(recipe_folder_name):
     for item in food_list:
         for ingredient in ingredients:
             if item in ingredient:
-                ingredients_dict[item] = ingredient
+                if '%' in ingredient:
+
+                    ingredients_dict[item] = ingredient.replace('%','1/4')
+                else:
+                    ingredients_dict[item] = ingredient
 
     # Remove repeating keys/values (olive, oil and olive oil will all generate separate keys in the code above)
     repeat_keys = []
