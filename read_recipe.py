@@ -9,8 +9,10 @@ os.environ["GOOGLE_APPLICATION_CREDENTIALS"] = 'Recipe-Bot-e5867579a186.json'
 client = vision.ImageAnnotatorClient()
 
 def tokenizer(filename):
+    cwd = os.getcwd()
+    recipe_folder='Images_recipes'
     # Process image and extract ingredient list and instructions list
-    with io.open(filename, 'rb') as image_file:
+    with io.open(os.path.join(cwd, recipe_folder, filename), 'rb') as image_file:
         content = image_file.read()
 
     image = vision.types.Image(content=content)
