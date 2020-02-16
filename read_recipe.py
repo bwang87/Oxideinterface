@@ -52,6 +52,21 @@ def tokenizer(recipe_folder_name):
             if item in ingredient:
                 ingredients_dict[item] = ingredient
 
+    # Remove repeating keys/values (olive, oil and olive oil will all generate separate keys in the code above)
+    repeat_keys = []
+    for key1 in ingredients_dict:
+        for key2 in ingredients_dict:
+            # avoid deleting identical keys
+            if key1 != key2:
+                if ingredients_dict[key1] == ingredients_dict[key2]:
+                    shorter_key = min(key1, key2, key=len)
+                    repeat_keys.append(shorter_key)
+
+    for item in repeat_keys:
+        try:
+            del ingredients_dict[item]
+        except KeyError:
+            pass
 
     # Process Instructions
     for item in instructions:
